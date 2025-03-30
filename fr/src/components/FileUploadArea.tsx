@@ -1,8 +1,8 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Camera, Upload, File, X } from 'lucide-react';
 import { toast } from 'sonner';
+import CameraCapture from './CameraCapture';
 
 interface FileWithPreview extends File {
   preview?: string;
@@ -17,7 +17,7 @@ const FileUploadArea: React.FC<FileUploadAreaProps> = ({ onFilesSelected, onPars
   const [files, setFiles] = useState<FileWithPreview[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const cameraInputRef = useRef<HTMLInputElement>(null);
+  const [showCamera, setShowCamera] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
@@ -68,15 +68,47 @@ const FileUploadArea: React.FC<FileUploadAreaProps> = ({ onFilesSelected, onPars
   };
 
   const handleCameraCapture = () => {
-    if (cameraInputRef.current) {
-      cameraInputRef.current.click();
-    }
+    setShowCamera(true);
   };
 
-  const handleCaptureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const capturedFiles = Array.from(e.target.files || []);
-    if (capturedFiles.length > 0) {
-      addFiles(capturedFiles);
+  const handleCaptureClose = () => {
+    setShowCamera(false);
+  };
+
+  const handleImageCapture = async (imageDataUrl: string) => {
+    try {
+      if (!imageDataUrl?.startsWith('data:image/jpeg;base64,')) {
+        throw new Error('Invalid image format');
+      }
+
+      const base64Data = imageDataUrl.split(',')[1];
+      const byteCharacters = window.atob(base64Data);
+      const byteNumbers = new Array(byteCharacters.length);
+
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/jpeg' });
+      
+      const fileName = `camera_capture_${new Date().toISOString()}.jpg`;
+      // Fix: Create File object with proper arguments
+      const file = new Blob([blob], { type: 'image/jpeg' }) as File;
+      Object.defineProperty(file, 'name', {
+        value: fileName,
+        writable: false
+      });
+      
+      addFiles([file]);
+      setShowCamera(false);
+    } catch (error: any) {
+      console.error('Error details:', {
+        message: error?.message || 'Unknown error',
+        dataUrlLength: imageDataUrl?.length || 0,
+        dataUrlStart: imageDataUrl?.substring(0, 50) || ''
+      });
+      toast.error('Failed to process the captured image. Please try again.');
     }
   };
 
@@ -126,15 +158,6 @@ const FileUploadArea: React.FC<FileUploadAreaProps> = ({ onFilesSelected, onPars
             accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" 
             className="hidden" 
           />
-          
-          <input 
-            type="file" 
-            ref={cameraInputRef} 
-            onChange={handleCaptureChange}
-            accept="image/*" 
-            capture="environment"
-            className="hidden" 
-          />
         </div>
       </div>
       
@@ -181,6 +204,12 @@ const FileUploadArea: React.FC<FileUploadAreaProps> = ({ onFilesSelected, onPars
             </Button>
           </div>
         </div>
+      )}
+      {showCamera && (
+        <CameraCapture 
+          onCapture={handleImageCapture}
+          onClose={handleCaptureClose}
+        />
       )}
     </div>
   );

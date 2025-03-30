@@ -1,4 +1,3 @@
-
 /**
  * API Service for Resume Parser Backend
  * 
@@ -38,6 +37,7 @@ export interface ParsedResume {
     linkedin?: string;
     github?: string;
     twitter?: string;
+    leetcode?: string;
   };
   achievements?: string[];
   source_file?: string;
@@ -169,9 +169,38 @@ export async function searchResumes(query: string): Promise<ParsedResume[]> {
   }
 }
 
+/**
+ * Send a message to the chatbot and get a response
+ * @param message User's message
+ * @returns Promise with the chatbot's reply
+ */
+export async function sendMessageToChatbot(message: string): Promise<string> {
+  try {
+    const response = await fetch('http://localhost:5000/chatbot', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to communicate with chatbot: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.reply;
+  } catch (error) {
+    console.error('Error communicating with chatbot:', error);
+    throw error;
+  }
+}
+
+// Add the function to the default export
 export default {
   parseResumes,
   getParsedResumes,
   getJobMatches,
-  searchResumes
+  searchResumes,
+  sendMessageToChatbot, // Add this line
 };

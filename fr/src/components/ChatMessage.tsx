@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Avatar } from '@/components/ui/avatar';
 import { MessageSquare } from 'lucide-react';
@@ -12,10 +11,13 @@ interface Message {
 
 interface ChatMessageProps {
   message: Message;
-  formatTime: (date: Date) => string;
 }
 
-const ChatMessage: React.FC<ChatMessageProps> = ({ message, formatTime }) => {
+const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
+  const formatTime = (date: Date): string => {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
   return (
     <div 
       className={`mb-4 flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} chat-bubble`}

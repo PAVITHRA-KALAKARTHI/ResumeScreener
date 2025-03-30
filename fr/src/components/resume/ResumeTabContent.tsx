@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { ParsedResume } from '@/services/api';
@@ -29,11 +28,43 @@ const ResumeTabContent: React.FC<ResumeTabContentProps> = ({ tabId, resumeData }
       case "skills":
         return shouldRenderSection('skills') ? <SkillsTab skills={resumeData.skills || []} /> : <EmptyTabContent />;
       case "experience":
-        return shouldRenderSection('experience') ? <ExperienceTab experience={resumeData.experience || []} /> : <EmptyTabContent />;
+        return shouldRenderSection('experience') ? (
+          <ExperienceTab
+            experience={(resumeData.experience || []).map(exp => ({
+              title: exp.title || 'Untitled',
+              company: exp.company || '',
+              date: exp.date || '',
+              description: exp.description || '',
+            }))}
+          />
+        ) : (
+          <EmptyTabContent />
+        );
       case "education":
-        return shouldRenderSection('education') ? <EducationTab education={resumeData.education || []} /> : <EmptyTabContent />;
+        return shouldRenderSection('education') ? (
+          <EducationTab
+            education={(resumeData.education || []).map(edu => ({
+              degree: edu.degree || 'Unknown Degree',
+              institution: edu.institution || '',
+              date: edu.date || '',
+              gpa: edu.gpa || '',
+            }))}
+          />
+        ) : (
+          <EmptyTabContent />
+        );
       case "projects":
-        return shouldRenderSection('projects') ? <ProjectsTab projects={resumeData.projects || []} /> : <EmptyTabContent />;
+        return shouldRenderSection('projects') ? (
+          <ProjectsTab
+            projects={(resumeData.projects || []).map(project => ({
+              name: project.name || 'Untitled Project',
+              description: project.description || '',
+              technologies: project.technologies || [],
+            }))}
+          />
+        ) : (
+          <EmptyTabContent />
+        );
       case "certifications":
         return shouldRenderSection('certifications') ? <CertificationsTab certifications={resumeData.certifications || []} /> : <EmptyTabContent />;
       case "languages":

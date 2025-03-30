@@ -1,0 +1,162 @@
+{
+    "name": "Vijayakumaran Sivasankaran",
+    "email": "vijayakumaran.sivasankaran@gmail.com",
+    "phone": "+91 95979 59097",
+    "location": null,
+    "summary": null,
+    "skills": [
+        "Java",
+        "Python",
+        "C",
+        "HCL",
+        "Javascript",
+        "SQL",
+        "AWS",
+        "Terraform",
+        "CircleCI",
+        "Docker",
+        "Keras",
+        "MongoDB",
+        "MySQL",
+        "Cloud Computing",
+        "CI/CD",
+        "Machine Learning",
+        "Data Structures",
+        "Deep Learning"
+    ],
+    "experience": [
+        {
+            "title": "Delivery Data Analyst intern",
+            "company": "Turing",
+            "date": "07/2024 - 02/2025",
+            "description": "Contributing to the Gemini AI Code project by fine-tuning models through meticulous review and correction of responses, ensuring accuracy and alignment with project objectives.Engaged in a wide range of tasks, including problem-solving, machine learning, deep learning, and automation leveraging skills to optimize and deliver effective solutions across multiple programming languages such as Python, Java, C, and JavaScript.Additional, actively involved in the creation of datasets for a Google project, focusing on various visualizations to enhance data representation and insights."
+        },
+        {
+            "title": "AVS DevOps Intern",
+            "company": "Centillion Labs",
+            "date": "12/2023 - 04/2024",
+            "description": "INFRASTRUCTURE AND DEVOPS EXPERTISE: Managed cloud infrastructure and DevOps tasks, focusing on AWS. Used Terraform for infrastructure as code (IaC). Addressed security vulnerabilities to ensure a robust and secure cloud environment.STREAMLINED DEPLOYMENT PROCESSES: Engineered and implemented one-click deployment solutions. Automated deployment workflows using CircleCI, enhancing the CI/CD pipeline for AWS resources.DYNAMIC ENVIRONMENT DEPLOYMENTS: Used CircleCI pipelines to smoothly deploy resources across multiple environments.APPROVAL-BASED DEPLOYMENT STRATEGIES: Designed and implemented approval-based deployment strategies in CircleCI, providing a controlled and secure approach to application code deployment on AWS resources.AWS: VPC, Subnets, Gateway setup, Routing table, Security Groups, EC2, Lambda, S3 and DocumentDB."
+        }
+    ],
+    "education": [
+        {
+            "degree": "B.Tech in Artificial Intelligence and Data Science",
+            "institution": "Kongu Engineering College, Erode, Tamil Nadu",
+            "date": "2021-2025",
+            "gpa": "8.54/10"
+        },
+        {
+            "degree": "HSC",
+            "institution": "Christ The King Hr Sec School",
+            "date": null,
+            "gpa": "89.92%"
+        },
+        {
+            "degree": "SSLC",
+            "institution": "Christ The King Hr Sec School",
+            "date": null,
+            "gpa": "94%"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Medical ChatBot with RAG System & Langchain",
+            "description": "Developed a medical chatbot leveraging Retrieval-Augmented Generation (RAG) and Langchain for accurate medical information retrieval. The system integrates HuggingFace transformers(Mistral) for text generation, FAISS for efficient search, and Flask for user management. scrapes web data, embeds text and uses a curated medical database to provide precise answers to user queries.",
+            "technologies": [
+                "Python",
+                "HuggingFace Transformers",
+                "Langchain",
+                "FAISS",
+                "Flask",
+                "MongoDB"
+            ]
+        },
+        {
+            "name": "AFER based approach for real-time insights : Analyzing student engagement in virtual classroom",
+            "description": "Developed a real-time facial expression recognition (FER) system to analyze student engagement in virtual classrooms using CNN, MobileNet, and ResNet architectures. Integrated OpenCV for video processing to detect and predict emotions dynamically, aiding instructors in tailoring teaching methods.",
+            "technologies": [
+                "Python",
+                "TensorFlow",
+                "Keras",
+                "OpenCV",
+                "CNN",
+                "MobileNet",
+                "ResNet"
+            ]
+        },
+        {
+            "name": "Fake News Detection",
+            "description": "Diverse feature engineering methods and ML algorithms like Decision Trees, Naive Bayes, and ensemble techniques like Random Forest and Gradient Boosting alongside Count and TF-IDF vectorization, were utilized for effective fake news detection.",
+            "technologies": [
+                "Python",
+                "Sklearn"
+            ]
+        },
+        {
+            "name": "Ideathon Webpage",
+            "description": "A basic user-friendly registration page for Ideathon was developed using ReactJS for front-end and Express for server-side logic, with secure data storage and retrieval facilitated by MongoDB and utilizing NodeJS for seamless interaction between server and database layers.",
+            "technologies": [
+                "ReactJS",
+                "ExpressJS",
+                "NodeJS",
+                "MongoDB"
+            ]
+        }
+    ],
+    "certifications": [],
+    "languages": [
+        "Java",
+        "Python",
+        "C",
+        "HCL",
+        "Javascript",
+        "SQL"
+    ],
+    "social": {
+        "linkedin": null,
+        "github": null,
+        "twitter": null,
+        "leetcode": null,
+        "more_info": null
+    },
+    "achievements": [
+        "1st Prize in Hybrid Coding Streak (Coding Club) at KEC [2024]",
+        "Winner in HackSphere Hackathon at KEC (Medical Chatbot) [2024]",
+        "1st Prize in Science Day Project EXPO [2024]",
+        "2nd Prize in Kavach Hackathon at KEC (Face Recognition) [2023]",
+        "Special Prize in Coding Carnival at KEC [2022]"
+    ],
+    "leadership": [
+        {
+            "role": "Additional Secretary",
+            "organization": "CSI",
+            "date": "2023 - 24",
+            "achievements": []
+        },
+        {
+            "role": "Executive Member",
+            "organization": "CODING FORUM",
+            "date": "2023 - 24",
+            "achievements": []
+        },
+        {
+            "role": "Dept. Single Point Of Contact",
+            "organization": "I",
+            "date": "2022 - 23",
+            "achievements": []
+        },
+        {
+            "role": "Executive Member",
+            "organization": "CSI",
+            "date": "2022-23",
+            "achievements": []
+        },
+        {
+            "role": "Executive Member",
+            "organization": "Culturals Club",
+            "date": "2022-23",
+            "achievements": []
+        }
+    ],
+    "source_file": "vijayakumaran_resume.jpg"
+}

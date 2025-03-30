@@ -1,14 +1,14 @@
-
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Mic, Send, Camera } from 'lucide-react';
 import { toast } from 'sonner';
+import { sendMessageToChatbot } from '@/services/api'; // Import the API function
 
 interface ChatInputProps {
   input: string;
   setInput: (input: string) => void;
-  handleSendMessage: () => void;
+  handleSendMessage: (message: string) => Promise<void>; // Updated to accept a message
   isRecording: boolean;
   toggleRecording: () => void;
   isSending: boolean;
@@ -26,15 +26,21 @@ const ChatInput: React.FC<ChatInputProps> = ({
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage();
+      await handleSendMessage(input.trim());
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
+  };
+
+  const handleSendClick = async () => {
+    if (input.trim()) {
+      await handleSendMessage(input.trim());
+    }
   };
 
   return (
@@ -71,7 +77,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={handleSendMessage}
+          onClick={handleSendClick}
           disabled={!input.trim() || isSending}
           className="h-9 w-9 shrink-0 rounded-full text-primary"
         >

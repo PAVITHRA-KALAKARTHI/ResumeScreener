@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -13,8 +12,6 @@ import ParticleBackground from '@/components/ParticleBackground';
 interface Job {
   id: number;
   title: string;
-  company: string;
-  location: string;
   matchScore: number;
   salary: string;
   description: string;
@@ -49,8 +46,6 @@ const Jobs: React.FC = () => {
             {
               id: 1,
               title: "Senior Frontend Developer",
-              company: "Tech Innovations Inc.",
-              location: "San Francisco, CA",
               matchScore: 92,
               salary: "$120,000 - $150,000",
               description: "Looking for an experienced frontend developer proficient in React and TypeScript.",
@@ -59,8 +54,6 @@ const Jobs: React.FC = () => {
             {
               id: 2,
               title: "Full Stack Engineer",
-              company: "Digital Solutions",
-              location: "Remote",
               matchScore: 87,
               salary: "$110,000 - $140,000",
               description: "Join our team to build scalable web applications using modern technologies.",
@@ -69,8 +62,6 @@ const Jobs: React.FC = () => {
             {
               id: 3,
               title: "UI/UX Developer",
-              company: "Creative Studios",
-              location: "New York, NY",
               matchScore: 85,
               salary: "$105,000 - $130,000",
               description: "Create beautiful and functional user interfaces for our client projects.",
@@ -79,8 +70,6 @@ const Jobs: React.FC = () => {
             {
               id: 4,
               title: "Python Backend Developer",
-              company: "DataTech Systems",
-              location: "Austin, TX",
               matchScore: 78,
               salary: "$115,000 - $140,000",
               description: "Develop robust backend systems with Python, Flask and SQLAlchemy.",
@@ -89,8 +78,6 @@ const Jobs: React.FC = () => {
             {
               id: 5,
               title: "Machine Learning Engineer",
-              company: "AI Innovations",
-              location: "Boston, MA",
               matchScore: 82,
               salary: "$130,000 - $160,000",
               description: "Build and deploy machine learning models for real-world applications.",
@@ -143,10 +130,17 @@ const Jobs: React.FC = () => {
                   <div className="flex justify-between items-start">
                     <div>
                       <h2 className="text-xl font-semibold">{job.title}</h2>
-                      <p className="text-muted-foreground">{job.company} • {job.location}</p>
+                      <a 
+                        href={`https://in.best-jobs-online.com/serp/?position=${encodeURIComponent(job.title)}`}
+                        className="text-blue-600 hover:text-blue-800 text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Similar Jobs & details →
+                      </a>
                     </div>
                     <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      {job.matchScore}% Match
+                      {Math.floor(Math.random() * (70 - 30 + 1)) + 30}% Match
                     </div>
                   </div>
                   
@@ -174,9 +168,6 @@ const Jobs: React.FC = () => {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                      Apply Now
-                    </Button>
                   </div>
                 </Card>
               ))}

@@ -47,7 +47,9 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Flask app
 app = Flask(__name__)
-CORS(app)
+
+# Configure CORS to allow requests from your frontend
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF file with improved error handling"""
@@ -126,13 +128,23 @@ def get_structured_resume_data(text, filename):
             }}
         ],
         "certifications": ["array of certification strings"],
-        "languages": ["array of language strings"],
+        "languages": ["array of language strings only human languages"],
         "social": {{
             "linkedin": "string (LinkedIn URL if available)",
             "github": "string (GitHub URL if available)",
-            "twitter": "string (Twitter URL if available)"
+            "twitter": "string (Twitter URL if available)",
+            "leetcode": "string (LeetCode URL if available)".,
+            "more_info": "string (any other relevant URLs)"
         }},
-        "achievements": ["array of achievement strings"]
+        "achievements": ["array of achievement strings"],
+        "leadership": [
+            {{
+                "role": "string (leadership role)",
+                "organization": "string (organization name)",
+                "date": "string (period)",
+                "achievements": ["array of achievements in this role"]
+            }}
+        ]
     }}
 
     Instructions:
@@ -142,7 +154,7 @@ def get_structured_resume_data(text, filename):
     5. Maintain the exact field names as shown
     7. Do not ask questions or add explanatory text
     8. Extract information only from the provided text
-    9. Understand correct information and split based on labels (experience and projects)
+    9. Understand correct information and split based on labels (experience and projects and leaderships)
 
     Resume text:
     {text}
@@ -222,18 +234,15 @@ def get_job_recommendations(resume_data):
             "company": "string (company name)",
             "location": "string (job location)",
             "description": "string (detailed job description)",
-            "match_score": number (0-100),
+            "match_score": number (must give some score 10-100),
             "salary": "string (salary range)",
             "skills": ["array of required skills"]
         }}
 
         Instructions:
         1. Use the candidate's skills, experience, and education to suggest relevant jobs
-        2. Ensure match_score is a number between 0-100 based on skill match
-        3. Include salary ranges based on experience level and job market
-        4. Return exactly 5 job recommendations
-        5. Include relevant skills required for each position
-        6. Format as a JSON array without any additional text
+        2. Include relevant skills required for each position
+        3. Format as a JSON array without any additional text
 
         Resume data:
         {json.dumps(resume_data, indent=2)}
@@ -346,14 +355,24 @@ def get_parsed_resume():
 @app.route('/job-matches', methods=['GET'])
 def get_job_matches():
     try:
-        # Get the latest parsed resume
-        resume_data = get_latest_parsed_resume()
-        if not resume_data:
-            return jsonify([]), 200  # Return empty array if no resume found
-            
-        # Get job recommendations
-        job_matches = get_job_recommendations(resume_data)
+        # Get resume_id from query parameter
+        resume_id = request.args.get('resume_id')
         
+        if (resume_id):
+            # Get specific resume by ID/filename
+            json_files = glob(os.path.join(OUTPUT_DIR, f"*{resume_id}*.json"))
+            if not json_files:
+                return jsonify({"error": "Resume not found"}), 404
+            with open(json_files[0], 'r', encoding='utf-8') as f:
+                resume_data = json.load(f)
+        else:
+            # Get the latest parsed resume (default behavior)
+            resume_data = get_latest_parsed_resume()
+            
+        if not resume_data:
+            return jsonify([]), 200
+            
+        job_matches = get_job_recommendations(resume_data)
         # Format the response to match the frontend interface
         formatted_matches = []
         for idx, job in enumerate(job_matches):
@@ -374,6 +393,50 @@ def get_job_matches():
     except Exception as e:
         logger.error(f"Error getting job matches: {str(e)}")
         return jsonify([]), 500
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    try:
+        # Get the user's message from the request
+        user_message = request.json.get('message', '')
+
+        # Retrieve the latest parsed resume
+        resume_data = get_latest_parsed_resume()
+        if not resume_data:
+            return jsonify({"reply": "No parsed resume data is available to process your query."}), 404
+
+        # Prepare the prompt for the Gemini API
+        prompt = f"""
+        You are an AI assistant. Based on the following parsed resume data, answer the user's query.
+        Resume data:
+        {json.dumps(resume_data, indent=2)}
+
+        User query:
+        {user_message}
+
+        Instructions:
+        1. Provide a clear and concise response based on the resume data.
+        2. If the query is unrelated to the resume, politely inform the user.
+        3. Do not include any additional text or explanations outside the response.
+        """
+
+        # Send the prompt to the Gemini API
+        model = get_gemini_model()
+        for attempt in range(3):
+            try:
+                response = model.generate_content(
+                    prompt,
+                    generation_config={"response_mime_type": "text/plain"}
+                )
+                return jsonify({"reply": response.text.strip()}), 200
+            except Exception as e:
+                logger.warning(f"Gemini API attempt {attempt + 1} failed: {str(e)}")
+                if attempt == 2:
+                    return jsonify({"reply": "Failed to process your query. Please try again later."}), 500
+
+    except Exception as e:
+        logger.error(f"Error in chatbot endpoint: {str(e)}")
+        return jsonify({"reply": "An error occurred while processing your request."}), 500
 
 if __name__ == "__main__":
     logger.info("Starting Flask application")

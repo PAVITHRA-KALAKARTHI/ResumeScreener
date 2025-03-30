@@ -1,130 +1,79 @@
-
-import React, { useState, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Camera, X } from 'lucide-react';
-import { toast } from 'sonner';
 
 interface CameraCaptureProps {
-  onCapture: (imageData: string) => void;
+  onCapture: (imageDataUrl: string) => void;
   onClose: () => void;
 }
 
 const CameraCapture: React.FC<CameraCaptureProps> = ({ onCapture, onClose }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isStreaming, setIsStreaming] = useState(false);
+  const streamRef = useRef<MediaStream | null>(null);
 
-  const startCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: 'environment' } 
-      });
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-        setIsStreaming(true);
-        toast.success('Camera started');
-      }
-    } catch (error) {
-      console.error('Error accessing camera:', error);
-      toast.error('Could not access camera. Please check permissions.');
-    }
-  };
-
-  const stopCamera = () => {
-    if (videoRef.current && videoRef.current.srcObject) {
-      const tracks = (videoRef.current.srcObject as MediaStream).getTracks();
-      tracks.forEach(track => track.stop());
-      videoRef.current.srcObject = null;
-      setIsStreaming(false);
-    }
-  };
-
-  const captureImage = () => {
-    if (!videoRef.current || !canvasRef.current) return;
-    
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    
-    // Set canvas dimensions to match video
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    
-    // Draw the current video frame to the canvas
-    const context = canvas.getContext('2d');
-    if (context) {
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      
-      // Convert canvas to data URL
-      const imageData = canvas.toDataURL('image/jpeg');
-      onCapture(imageData);
-      
-      // Stop the camera
-      stopCamera();
-      toast.success('Image captured');
-    }
-  };
-
-  React.useEffect(() => {
-    // Start the camera when component mounts
+  useEffect(() => {
     startCamera();
-    
-    // Cleanup when component unmounts
     return () => {
       stopCamera();
     };
   }, []);
 
+  const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        streamRef.current = stream;
+      }
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+    }
+  };
+
+  const stopCamera = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop());
+    }
+  };
+
+  const captureImage = () => {
+    if (videoRef.current) {
+      const canvas = document.createElement('canvas');
+      canvas.width = videoRef.current.videoWidth;
+      canvas.height = videoRef.current.videoHeight;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.drawImage(videoRef.current, 0, 0);
+        const imageDataUrl = canvas.toDataURL('image/jpg');
+        onCapture(imageDataUrl);
+      }
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-      <div className="relative bg-card rounded-lg overflow-hidden shadow-2xl max-w-md w-full">
-        <div className="p-3 bg-primary text-primary-foreground flex items-center justify-between">
-          <h3 className="font-medium">Take a Picture</h3>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={() => {
-              stopCamera();
-              onClose();
-            }}
-            className="h-8 w-8 text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
-          >
-            <X size={18} />
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 max-w-lg w-full mx-4">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-semibold">Camera Capture</h3>
+          <Button variant="ghost" size="icon" onClick={onClose}>
+            <X size={20} />
           </Button>
         </div>
-        
-        <div className="relative aspect-[4/3] bg-black w-full overflow-hidden">
-          <video 
-            ref={videoRef} 
-            className="absolute inset-0 w-full h-full object-cover"
+        <div className="relative aspect-video bg-black rounded-lg overflow-hidden mb-4">
+          <video
+            ref={videoRef}
+            autoPlay
             playsInline
-            muted
-          />
-          <canvas 
-            ref={canvasRef}
-            className="hidden" 
+            className="w-full h-full object-cover"
           />
         </div>
-        
-        <div className="p-4 flex justify-center gap-4">
-          <Button 
-            variant="outline" 
-            onClick={() => {
-              stopCamera();
-              onClose();
-            }}
-            className="w-1/3"
-          >
-            Cancel
-          </Button>
-          <Button 
-            variant="default"
-            onClick={captureImage}
-            className="w-1/3 bg-green-600 hover:bg-green-700"
-            disabled={!isStreaming}
-          >
+        <div className="flex justify-center gap-4">
+          <Button onClick={captureImage} className="flex items-center gap-2">
+            <Camera size={18} />
             Capture
+          </Button>
+          <Button variant="outline" onClick={onClose}>
+            Cancel
           </Button>
         </div>
       </div>
