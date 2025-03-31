@@ -1080,3 +1080,153 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\20250326_23484
 2025-03-30 19:56:45,833 - INFO - 127.0.0.1 - - [30/Mar/2025 19:56:45] "POST /chatbot HTTP/1.1" 200 -
 2025-03-30 19:57:37,461 - INFO - 127.0.0.1 - - [30/Mar/2025 19:57:37] "OPTIONS /chatbot HTTP/1.1" 200 -
 2025-03-30 19:57:39,270 - INFO - 127.0.0.1 - - [30/Mar/2025 19:57:39] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:16:57,627 - INFO - Starting Flask application
+2025-03-31 19:16:57,646 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-03-31 19:16:57,646 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-31 19:18:07,375 - INFO - 127.0.0.1 - - [31/Mar/2025 19:18:07] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 19:18:07,642 - INFO - Returning 5 parsed resumes
+2025-03-31 19:18:07,643 - INFO - 127.0.0.1 - - [31/Mar/2025 19:18:07] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 19:18:45,311 - INFO - Saved parsed data to processed_data\deepan resume_20250331_191845.json
+2025-03-31 19:18:45,313 - INFO - Successfully processed deepan resume.pdf
+2025-03-31 19:18:45,315 - INFO - 127.0.0.1 - - [31/Mar/2025 19:18:45] "POST /parse-resumes HTTP/1.1" 200 -
+2025-03-31 19:18:45,480 - INFO - 127.0.0.1 - - [31/Mar/2025 19:18:45] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 19:18:45,808 - INFO - Returning 6 parsed resumes
+2025-03-31 19:18:45,810 - INFO - 127.0.0.1 - - [31/Mar/2025 19:18:45] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 19:19:00,643 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:00] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:01,435 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:01] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:11,650 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:11] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:12,950 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:12] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:29,050 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:29] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:30,114 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:30] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:37,542 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:37] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:38,338 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:38] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:55,985 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:55] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:19:56,833 - INFO - 127.0.0.1 - - [31/Mar/2025 19:19:56] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:20:06,602 - INFO - 127.0.0.1 - - [31/Mar/2025 19:20:06] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 19:20:07,391 - INFO - 127.0.0.1 - - [31/Mar/2025 19:20:07] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 19:20:27,682 - INFO - Successfully generated 5 job recommendations
+2025-03-31 19:20:27,684 - INFO - 127.0.0.1 - - [31/Mar/2025 19:20:27] "GET /job-matches HTTP/1.1" 200 -
+2025-03-31 20:04:14,567 - INFO - Successfully generated 5 job recommendations
+2025-03-31 20:04:14,569 - INFO - 127.0.0.1 - - [31/Mar/2025 20:04:14] "GET /job-matches HTTP/1.1" 200 -
+2025-03-31 20:11:45,569 - INFO - Successfully generated 5 job recommendations
+2025-03-31 20:11:45,570 - INFO - 127.0.0.1 - - [31/Mar/2025 20:11:45] "GET /job-matches HTTP/1.1" 200 -
+2025-03-31 20:12:06,018 - INFO - 127.0.0.1 - - [31/Mar/2025 20:12:06] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:12:06,282 - INFO - Returning 6 parsed resumes
+2025-03-31 20:12:06,285 - INFO - 127.0.0.1 - - [31/Mar/2025 20:12:06] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:12:24,234 - INFO - Successfully generated 5 job recommendations
+2025-03-31 20:12:24,236 - INFO - 127.0.0.1 - - [31/Mar/2025 20:12:24] "GET /job-matches HTTP/1.1" 200 -
+2025-03-31 20:17:27,596 - INFO - 127.0.0.1 - - [31/Mar/2025 20:17:27] "[33mOPTIONS /login HTTP/1.1[0m" 404 -
+2025-03-31 20:18:01,364 - INFO - 127.0.0.1 - - [31/Mar/2025 20:18:01] "[33mOPTIONS /login HTTP/1.1[0m" 404 -
+2025-03-31 20:21:01,060 - INFO - 127.0.0.1 - - [31/Mar/2025 20:21:01] "[33mOPTIONS /login HTTP/1.1[0m" 404 -
+2025-03-31 20:30:09,447 - INFO - Starting Flask application
+2025-03-31 20:30:09,464 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-03-31 20:30:09,465 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-31 20:30:35,424 - INFO - 127.0.0.1 - - [31/Mar/2025 20:30:35] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:30:35,745 - INFO - Returning 6 parsed resumes
+2025-03-31 20:30:35,749 - INFO - 127.0.0.1 - - [31/Mar/2025 20:30:35] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:30:36,725 - INFO - Saved parsed data to processed_data\vijayakumaran_resume_20250331_203036.json
+2025-03-31 20:30:36,725 - INFO - Successfully processed vijayakumaran_resume.jpg
+2025-03-31 20:30:36,726 - INFO - 127.0.0.1 - - [31/Mar/2025 20:30:36] "POST /parse-resumes HTTP/1.1" 200 -
+2025-03-31 20:31:02,025 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:02] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-03-31 20:31:02,930 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:02] "POST /chatbot HTTP/1.1" 200 -
+2025-03-31 20:31:11,174 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:11] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:11,443 - INFO - Returning 7 parsed resumes
+2025-03-31 20:31:11,445 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:11] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:14,331 - INFO - Returning 7 parsed resumes
+2025-03-31 20:31:14,333 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:14] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:38,804 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:38] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:39,069 - INFO - No parsed resume data available
+2025-03-31 20:31:39,071 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:39] "[33mGET /get-parsed-resume HTTP/1.1[0m" 404 -
+2025-03-31 20:31:53,701 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:53] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:54,014 - INFO - No parsed resume data available
+2025-03-31 20:31:54,017 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:54] "[33mGET /get-parsed-resume HTTP/1.1[0m" 404 -
+2025-03-31 20:31:56,368 - INFO - No parsed resume data available
+2025-03-31 20:31:56,369 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:56] "[33mGET /get-parsed-resume HTTP/1.1[0m" 404 -
+2025-03-31 20:31:57,375 - INFO - No parsed resume data available
+2025-03-31 20:31:57,378 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:57] "[33mGET /get-parsed-resume HTTP/1.1[0m" 404 -
+2025-03-31 20:31:57,468 - INFO - Saved parsed data to processed_data\vijayakumaran_resume_20250331_203157.json
+2025-03-31 20:31:57,468 - INFO - Successfully processed vijayakumaran_resume.jpg
+2025-03-31 20:31:57,469 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:57] "POST /parse-resumes HTTP/1.1" 200 -
+2025-03-31 20:31:59,703 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:59] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:31:59,968 - INFO - Returning 1 parsed resumes
+2025-03-31 20:31:59,970 - INFO - 127.0.0.1 - - [31/Mar/2025 20:31:59] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:32:11,496 - INFO - 127.0.0.1 - - [31/Mar/2025 20:32:11] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:32:11,746 - INFO - Returning 1 parsed resumes
+2025-03-31 20:32:11,747 - INFO - 127.0.0.1 - - [31/Mar/2025 20:32:11] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:51:13,719 - INFO - 127.0.0.1 - - [31/Mar/2025 20:51:13] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:51:13,987 - INFO - Returning 1 parsed resumes
+2025-03-31 20:51:13,990 - INFO - 127.0.0.1 - - [31/Mar/2025 20:51:13] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:52:25,896 - INFO - 127.0.0.1 - - [31/Mar/2025 20:52:25] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:52:26,146 - INFO - Returning 1 parsed resumes
+2025-03-31 20:52:26,147 - INFO - 127.0.0.1 - - [31/Mar/2025 20:52:26] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:52:27,888 - INFO - Returning 1 parsed resumes
+2025-03-31 20:52:27,888 - INFO - 127.0.0.1 - - [31/Mar/2025 20:52:27] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:52:37,887 - INFO - 127.0.0.1 - - [31/Mar/2025 20:52:37] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:52:38,153 - INFO - Returning 1 parsed resumes
+2025-03-31 20:52:38,157 - INFO - 127.0.0.1 - - [31/Mar/2025 20:52:38] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:06,584 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:06] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:06,891 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:06,892 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:06] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:07,586 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:07,588 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:07] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:15,884 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:15] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:16,151 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:16,152 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:16] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:17,583 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:17,584 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:17] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:22,887 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:22] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:23,151 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:23,152 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:23] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 20:53:23,590 - INFO - Returning 1 parsed resumes
+2025-03-31 20:53:23,590 - INFO - 127.0.0.1 - - [31/Mar/2025 20:53:23] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 21:57:30,052 - INFO - Starting Flask application
+2025-03-31 21:57:30,082 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.84.231:5000
+2025-03-31 21:57:30,082 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-31 21:57:56,656 - INFO - Saved parsed data to processed_data\deepan resume_20250331_215756.json
+2025-03-31 21:57:56,657 - INFO - Successfully processed deepan resume.pdf
+2025-03-31 21:57:56,660 - INFO - 127.0.0.1 - - [31/Mar/2025 21:57:56] "POST /parse-resumes HTTP/1.1" 200 -
+2025-03-31 21:57:56,708 - INFO - 127.0.0.1 - - [31/Mar/2025 21:57:56] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 21:57:57,034 - INFO - Returning 2 parsed resumes
+2025-03-31 21:57:57,036 - INFO - 127.0.0.1 - - [31/Mar/2025 21:57:57] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 21:59:38,221 - INFO - 127.0.0.1 - - [31/Mar/2025 21:59:38] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 21:59:38,485 - INFO - Returning 2 parsed resumes
+2025-03-31 21:59:38,486 - INFO - 127.0.0.1 - - [31/Mar/2025 21:59:38] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:05:22,245 - INFO - 127.0.0.1 - - [31/Mar/2025 22:05:22] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:05:22,510 - INFO - Returning 2 parsed resumes
+2025-03-31 22:05:22,511 - INFO - 127.0.0.1 - - [31/Mar/2025 22:05:22] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:05:54,929 - INFO - 127.0.0.1 - - [31/Mar/2025 22:05:54] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:05:55,247 - INFO - Returning 2 parsed resumes
+2025-03-31 22:05:55,248 - INFO - 127.0.0.1 - - [31/Mar/2025 22:05:55] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:06:53,965 - INFO - 127.0.0.1 - - [31/Mar/2025 22:06:53] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:06:54,213 - INFO - Returning 2 parsed resumes
+2025-03-31 22:06:54,214 - INFO - 127.0.0.1 - - [31/Mar/2025 22:06:54] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:10:52,238 - INFO - 127.0.0.1 - - [31/Mar/2025 22:10:52] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:10:52,501 - INFO - Returning 2 parsed resumes
+2025-03-31 22:10:52,502 - INFO - 127.0.0.1 - - [31/Mar/2025 22:10:52] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:10:56,922 - INFO - Returning 2 parsed resumes
+2025-03-31 22:10:56,923 - INFO - 127.0.0.1 - - [31/Mar/2025 22:10:56] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:11:01,319 - INFO - 127.0.0.1 - - [31/Mar/2025 22:11:01] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:11:01,579 - INFO - Returning 2 parsed resumes
+2025-03-31 22:11:01,580 - INFO - 127.0.0.1 - - [31/Mar/2025 22:11:01] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-03-31 22:42:15,793 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:15] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-31 22:42:21,863 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:21] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-31 22:42:46,321 - ERROR - Error in login: your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67eac272ec8f347922915fb2, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_atlas_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-03-31 22:42:46,323 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:46] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-03-31 22:42:47,838 - ERROR - Error in login: your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67eac272ec8f347922915fb2, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_atlas_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-03-31 22:42:47,841 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:47] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-03-31 22:42:50,844 - ERROR - Error in login: your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67eac272ec8f347922915fb2, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_atlas_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-03-31 22:42:50,845 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:50] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-03-31 22:42:52,358 - ERROR - Error in login: your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67eac272ec8f347922915fb2, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_atlas_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-03-31 22:42:52,367 - INFO - 127.0.0.1 - - [31/Mar/2025 22:42:52] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-03-31 22:43:40,863 - INFO - 127.0.0.1 - - [31/Mar/2025 22:43:40] "OPTIONS /login HTTP/1.1" 200 -
+2025-03-31 22:44:11,156 - ERROR - Error in login: your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67eac272ec8f347922915fb2, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_atlas_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_atlas_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-03-31 22:44:11,157 - INFO - 127.0.0.1 - - [31/Mar/2025 22:44:11] "[35m[1mPOST /login HTTP/1.1[0m" 500 -

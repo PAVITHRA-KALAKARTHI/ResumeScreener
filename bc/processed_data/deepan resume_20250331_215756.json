@@ -1,0 +1,85 @@
+{
+    "name": "DEEPAN B",
+    "email": "deepanb2005@gmail.com",
+    "phone": "9344681720",
+    "location": null,
+    "summary": "Results-driven Software Developer with expertise in Java, Python, and full-stack web development, including React.js, Node.js, Express.js, MongoDB, and SQL. Proficient in AI, machine learning, deep learning, NLP, LLMs, and prompt engineering. Experienced in building scalable applications, RESTful APIs, and AI-powered solutions using Flask. Passionate about leveraging technology to develop innovative and efficient solutions.",
+    "skills": [
+        "Java",
+        "Python",
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "AI",
+        "machine learning",
+        "deep learning",
+        "NLP",
+        "LLMs",
+        "prompt engineering",
+        "Flask",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "full-stack web development",
+        "RESTful APIs"
+    ],
+    "experience": [],
+    "education": [
+        {
+            "degree": "B.Tech AI & DS",
+            "institution": "Kongu Engineering College",
+            "date": "Currently pursuing",
+            "gpa": "7.77"
+        },
+        {
+            "degree": "DIPLOMA(COMPUTER SCIENCE)",
+            "institution": "KONGU POLYTECHNIC COLLEGE",
+            "date": "Graduated in March 2024",
+            "gpa": "91.22%"
+        },
+        {
+            "degree": "Grade 10",
+            "institution": "KONGU VELLALAR MATRICULATION HIGHER SECOUNDARY SCHOOL",
+            "date": null,
+            "gpa": "58%"
+        }
+    ],
+    "projects": [
+        {
+            "name": "College Club Management System",
+            "description": "a dynamic College Club Management System using HTML, CSS, JavaScript and sqllite to streamline club activities and member management. The platform allows students to join clubs, participate in events, and communicate with members. Implemented user authentication, event scheduling, and an admin dashboard for managing clubs. Ensured a responsive and interactive UI for an enhanced user experience. This project simplifies club coordination and fosters student engagement.",
+            "technologies": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "sqllite"
+            ]
+        },
+        {
+            "name": "ENERGY DEMAND FORECASTING",
+            "description": "Developed a machine learning model to predict energy demand based on historical consumption patterns, weather data, and other influencing factors. Implemented time series forecasting techniques using algorithms such as LSTM, XGBoost, and ARIMA. Preprocessed large datasets, optimized model performance, and deployed the solution for real-time predictions. The project aimed to improve energy efficiency, reduce operational costs, and enhance grid stability.",
+            "technologies": [
+                "LSTM",
+                "XGBoost",
+                "ARIMA"
+            ]
+        }
+    ],
+    "certifications": [],
+    "languages": [],
+    "social": {
+        "linkedin": "https://www.linkedin.com/in/deepanb2005/",
+        "github": "https://github.com/DeepanB2005",
+        "twitter": null,
+        "leetcode": null,
+        "more_info": null
+    },
+    "achievements": [
+        "Winner,1st in Techno task web development event (inter college level event ) conducted by Computer society of India",
+        "Finalist in hacksphere hackathon kongu engineering college"
+    ],
+    "leadership": [],
+    "source_file": "deepan resume.pdf"
+}

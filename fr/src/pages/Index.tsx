@@ -19,7 +19,8 @@ const Index: React.FC = () => {
   const [parsedResume, setParsedResume] = useState<any>(null);
   const [showAnalytics, setShowAnalytics] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -170,6 +171,24 @@ const Index: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-blue-50 dark:from-background dark:to-gray-900 relative overflow-x-hidden">
+      
+      <div className="absolute top-4 right-4">
+        {!isAuthenticated ? (
+          <Button
+            onClick={() => navigate('/auth')} // Updated to navigate to the correct route
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:scale-105 transition-transform"
+          >
+            Login / Sign Up
+          </Button>
+        ) : (
+          <Button
+            onClick={() => navigate('/dashboard')}
+            className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg hover:scale-105 transition-transform"
+          >
+            Go to Dashboard
+          </Button>
+        )}
+      </div>
       <div 
         className="cursor-glow" 
         style={{ 
@@ -190,7 +209,7 @@ const Index: React.FC = () => {
       
       <ParticleBackground />
       
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-1 py-2">
         <header className="text-center mb-12">
           <div className="inline-block">
             <div className="relative">

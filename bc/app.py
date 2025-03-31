@@ -12,6 +12,10 @@ import logging
 from glob import glob
 import threading
 from flask_cors import CORS
+from pymongo import MongoClient
+from werkzeug.security import generate_password_hash, check_password_hash
+import jwt
+import datetime as dt
 
 # Set Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -30,6 +34,16 @@ logger = logging.getLogger(__name__)
 # Configure Gemini API key
 API_KEY = "AIzaSyAoDBhQ2NzB-KCu95Ur984zpGgFi_g1L9Q"
 genai.configure(api_key=API_KEY)
+
+# MongoDB connection
+MONGO_URI = "mongodb+srv://Deepan:Interstellar143@resumedata.bpkwtpe.mongodb.net/?retryWrites=true&w=majority&appName=Resumedata"
+client = MongoClient(MONGO_URI)
+db = client["resume_screener"]
+users_collection = db["users"]
+parsed_resumes_collection = db["parsed_resumes"]
+
+# JWT Secret Key
+JWT_SECRET = "your_jwt_secret_key"
 
 # Thread-local Gemini model for safety
 thread_local = threading.local()
@@ -150,7 +164,6 @@ def get_structured_resume_data(text, filename):
     Instructions:
     1. Extract all information exactly as shown in the structure above
     3. Use empty arrays [] for missing array fields
-    4. Use null for missing object fields
     5. Maintain the exact field names as shown
     7. Do not ask questions or add explanatory text
     8. Extract information only from the provided text
@@ -437,6 +450,90 @@ def chatbot():
     except Exception as e:
         logger.error(f"Error in chatbot endpoint: {str(e)}")
         return jsonify({"reply": "An error occurred while processing your request."}), 500
+
+# Signup route
+@app.route('/signup', methods=['POST'])
+def signup():
+    try:
+        data = request.json
+        name = data.get("name")
+        email = data.get("email")
+        password = data.get("password")
+
+        if not name or not email or not password:
+            return jsonify({"error": "All fields are required"}), 400
+
+        # Check if the user already exists
+        if users_collection.find_one({"email": email}):
+            return jsonify({"error": "User already exists"}), 400
+
+        # Hash the password
+        hashed_password = generate_password_hash(password)
+
+        # Save the user to the database
+        users_collection.insert_one({
+            "name": name,
+            "email": email,
+            "password": hashed_password,
+            "created_at": datetime.now()
+        })
+
+        return jsonify({"message": "User registered successfully"}), 201
+    except Exception as e:
+        logger.error(f"Error in signup: {str(e)}")
+        return jsonify({"error": "Internal server error"}), 500
+
+# Login route
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        data = request.json
+        email = data.get("email")
+        password = data.get("password")
+
+        if not email or not password:
+            return jsonify({"error": "Email and password are required"}), 400
+
+        # Find the user in the database
+        user = users_collection.find_one({"email": email})
+        if not user:
+            return jsonify({"error": "Invalid email or password"}), 401
+
+        # Check the password
+        if not check_password_hash(user["password"], password):
+            return jsonify({"error": "Invalid email or password"}), 401
+
+        # Generate a JWT token
+        token = jwt.encode(
+            {"user_id": str(user["_id"]), "exp": dt.datetime.utcnow() + dt.timedelta(hours=1)},
+            JWT_SECRET,
+            algorithm="HS256"
+        )
+
+        return jsonify({"message": "Login successful", "token": token}), 200
+    except Exception as e:
+        logger.error(f"Error in login: {str(e)}")
+        return jsonify({"error": "Internal server error"}), 500
+
+# Protected route example
+@app.route('/protected', methods=['GET'])
+def protected():
+    token = request.headers.get("Authorization")
+    if not token:
+        return jsonify({"error": "Token is missing"}), 401
+
+    try:
+        decoded = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+        user_id = decoded["user_id"]
+        user = users_collection.find_one({"_id": user_id})
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        return jsonify({"message": "Access granted", "user": user}), 200
+    except jwt.ExpiredSignatureError:
+        return jsonify({"error": "Token has expired"}), 401
+    except jwt.InvalidTokenError:
+        return jsonify({"error": "Invalid token"}), 401
 
 if __name__ == "__main__":
     logger.info("Starting Flask application")
