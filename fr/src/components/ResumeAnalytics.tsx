@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -9,6 +8,7 @@ import ResumeOverview from './resume/ResumeOverview';
 import ResumeActions from './resume/ResumeActions';
 import TabIcon from './resume/TabIcon';
 import { IconName } from './IconProvider';
+import SaveResumeButton from './SaveResumeButton';
 
 interface ResumeAnalyticsProps {
   resumeData: ParsedResume | null;
@@ -49,7 +49,10 @@ const ResumeAnalytics: React.FC<ResumeAnalyticsProps> = ({ resumeData }) => {
       {/* Header with basic info */}
       <Card className="p-6 glossy-card shadow-md">
         <div className="flex flex-col md:flex-row gap-6 justify-between">
-          <ResumeBasicInfo resumeData={resumeData} />
+          <div className="flex justify-between items-start w-full">
+            <ResumeBasicInfo resumeData={resumeData} />
+            <SaveResumeButton resumeData={resumeData} />
+          </div>
           
           {/* Profile summary */}
           {resumeData.summary && (

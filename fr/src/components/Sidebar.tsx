@@ -57,7 +57,15 @@ const Sidebar: React.FC = () => {
                 onClick={() => handleNavigation('/jobs')} 
                 className="block w-full text-left text-sm p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
               >
-                jobs
+                Jobs
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleNavigation('/?showAnalytics=true')} 
+                className="block w-full text-left text-sm p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Resume Analytics
               </button>
             </li>
           </ul>

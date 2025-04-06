@@ -1,4 +1,4 @@
-import google.generativeai as genai
+import google.generativeai as genai # type: ignore
 import os
 from PyPDF2 import PdfReader
 from PIL import Image
@@ -16,6 +16,9 @@ from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime as dt
+import requests
+from bson import ObjectId
+from pymongo.errors import ConnectionFailure
 
 # Set Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -35,12 +38,19 @@ logger = logging.getLogger(__name__)
 API_KEY = "AIzaSyAoDBhQ2NzB-KCu95Ur984zpGgFi_g1L9Q"
 genai.configure(api_key=API_KEY)
 
-# MongoDB connection
-MONGO_URI = "mongodb+srv://Deepan:Interstellar143@resumedata.bpkwtpe.mongodb.net/?retryWrites=true&w=majority&appName=Resumedata"
-client = MongoClient(MONGO_URI)
-db = client["resume_screener"]
-users_collection = db["users"]
-parsed_resumes_collection = db["parsed_resumes"]
+# MongoDB connection with error handling
+try:
+    client = MongoClient('your_mongodb_connection_string', serverSelectionTimeoutMS=5000)
+    db = client.resume_screener
+    users_collection = db.users
+    parsed_resumes_collection = db.parsed_resumes
+    
+    # Test the connection
+    client.admin.command('ping')
+    logger.info("Successfully connected to MongoDB")
+except ConnectionFailure as e:
+    logger.error(f"Could not connect to MongoDB: {e}")
+    raise
 
 # JWT Secret Key
 JWT_SECRET = "your_jwt_secret_key"
@@ -64,6 +74,83 @@ app = Flask(__name__)
 
 # Configure CORS to allow requests from your frontend
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Add your Google Client ID
+GOOGLE_CLIENT_ID = "12063884765-427du25qov1rcev5mruu2glor2ahd5k2.apps.googleusercontent.com"  # Replace with your actual Google Client ID
+
+@app.route("/api/verify-token", methods=["POST"])
+def verify_token():
+    token = request.json.get("token")
+    try:
+        # Verify the token with Google
+        google_response = requests.get(
+            f"https://oauth2.googleapis.com/tokeninfo?id_token={token}"
+        )
+        
+        if google_response.status_code != 200:
+            return jsonify({"error": "Invalid token"}), 401
+            
+        user_info = google_response.json()
+        
+        # Verify that the token was intended for your application
+        if user_info.get("aud") != GOOGLE_CLIENT_ID:
+            return jsonify({"error": "Invalid client ID"}), 401
+            
+        # Check if user exists in MongoDB
+        existing_user = users_collection.find_one({"email": user_info.get("email")})
+        
+        if existing_user:
+            # Update existing user's last login
+            users_collection.update_one(
+                {"_id": existing_user["_id"]},
+                {
+                    "$set": {
+                        "last_login": datetime.now(),
+                        "picture": user_info.get("picture"),
+                        "name": user_info.get("name")
+                    }
+                }
+            )
+            user_id = str(existing_user["_id"])
+        else:
+            # Create new user
+            new_user = {
+                "email": user_info.get("email"),
+                "name": user_info.get("name"),
+                "picture": user_info.get("picture"),
+                "created_at": datetime.now(),
+                "last_login": datetime.now(),
+                "auth_type": "google",
+                "saved_resumes": []  # Array to store saved resume IDs
+            }
+            result = users_collection.insert_one(new_user)
+            user_id = str(result.inserted_id)
+
+        # Generate JWT token
+        app_token = jwt.encode(
+            {
+                "user_id": user_id,
+                "email": user_info.get("email"),
+                "exp": datetime.now() + dt.timedelta(days=1)
+            },
+            JWT_SECRET,
+            algorithm="HS256"
+        )
+        
+        return jsonify({
+            "message": "Authentication successful",
+            "token": app_token,
+            "user": {
+                "id": user_id,
+                "email": user_info.get("email"),
+                "name": user_info.get("name"),
+                "picture": user_info.get("picture")
+            }
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in verify_token: {str(e)}")
+        return jsonify({"error": str(e)}), 400
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF file with improved error handling"""
@@ -128,7 +215,7 @@ def get_structured_resume_data(text, filename):
         ],
         "education": [
             {{
-                "degree": "string (degree name)",
+                "degree": "string (degree name or hsc/ssc)",
                 "institution": "string (school/university name)",
                 "date": "string (education period)",
                 "gpa": "string (if available)"
@@ -535,6 +622,107 @@ def protected():
     except jwt.InvalidTokenError:
         return jsonify({"error": "Invalid token"}), 401
 
+@app.route("/api/save-resume", methods=["POST"])
+def save_resume():
+    try:
+        # Get token from header
+        auth_header = request.headers.get("Authorization")
+        if not auth_header:
+            return jsonify({"error": "Authorization header missing"}), 401
+
+        token = auth_header.split(" ")[1]
+        
+        try:
+            # Verify JWT token
+            decoded = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+            user_id = decoded["user_id"]
+        except jwt.InvalidTokenError:
+            return jsonify({"error": "Invalid token"}), 401
+        except jwt.ExpiredSignatureError:
+            return jsonify({"error": "Token has expired"}), 401
+
+        # Get resume data from request
+        resume_data = request.json.get("resume_data")
+        if not resume_data:
+            return jsonify({"error": "Resume data is required"}), 400
+
+        try:
+            # Add metadata to resume data
+            resume_data["user_id"] = ObjectId(user_id)
+            resume_data["saved_at"] = datetime.now()
+            resume_data["last_updated"] = datetime.now()
+
+            # Save resume data to parsed_resumes collection
+            result = parsed_resumes_collection.insert_one(resume_data)
+            resume_id = str(result.inserted_id)
+
+            # Update user's saved_resumes array
+            users_collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$push": {"saved_resumes": ObjectId(resume_id)}}
+            )
+
+            return jsonify({
+                "message": "Resume saved successfully",
+                "resume_id": resume_id
+            }), 200
+
+        except Exception as e:
+            logger.error(f"Database operation failed: {e}")
+            return jsonify({"error": "Failed to save resume"}), 500
+
+    except Exception as e:
+        logger.error(f"Error saving resume: {e}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route("/api/get-saved-resumes", methods=["GET"])
+def get_saved_resumes():
+    try:
+        # Get token from header
+        auth_header = request.headers.get("Authorization")
+        if not auth_header:
+            return jsonify({"error": "Authorization header missing"}), 401
+
+        token = auth_header.split(" ")[1]
+        
+        # Verify JWT token
+        decoded = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+        user_id = decoded["user_id"]
+
+        # Get user's saved resumes
+        user = users_collection.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        saved_resumes = list(parsed_resumes_collection.find(
+            {"_id": {"$in": user.get("saved_resumes", [])}}
+        ))
+
+        # Convert ObjectId to string for JSON serialization
+        for resume in saved_resumes:
+            resume["_id"] = str(resume["_id"])
+            resume["user_id"] = str(resume["user_id"])
+
+        return jsonify({
+            "resumes": saved_resumes
+        }), 200
+
+    except jwt.ExpiredSignatureError:
+        return jsonify({"error": "Token has expired"}), 401
+    except jwt.InvalidTokenError:
+        return jsonify({"error": "Invalid token"}), 401
+    except Exception as e:
+        logger.error(f"Error getting saved resumes: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == "__main__":
     logger.info("Starting Flask application")
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+
+from pymongo import MongoClient
+client = MongoClient('your_mongodb_connection_string')
+try:
+    client.admin.command('ping')
+    print("MongoDB connection successful")
+except Exception as e:
+    print(f"MongoDB connection failed: {e}")

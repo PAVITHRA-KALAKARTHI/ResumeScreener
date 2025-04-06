@@ -7,7 +7,9 @@ import Sidebar from "./components/Sidebar"; // Import the Sidebar component
 import Index from "./pages/Index";
 import Jobs from "./pages/Jobs";
 import NotFound from "./pages/NotFound";
-import AuthPage from "./pages/LoginSignup";
+import AuthPage from "./pages/AuthPage";
+import Dashboard from "./pages/Dashboard";
+import React from "react";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +24,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/jobs" element={<Jobs />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/auth" element={<AuthPage />} /> {/* Updated */}
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
