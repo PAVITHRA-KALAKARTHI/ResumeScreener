@@ -1469,3 +1469,74 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\20250326_23484
 2025-04-06 21:19:36,067 - INFO - 127.0.0.1 - - [06/Apr/2025 21:19:36] "POST /chatbot HTTP/1.1" 200 -
 2025-04-06 21:19:59,877 - INFO - 127.0.0.1 - - [06/Apr/2025 21:19:59] "OPTIONS /chatbot HTTP/1.1" 200 -
 2025-04-06 21:20:00,758 - INFO - 127.0.0.1 - - [06/Apr/2025 21:20:00] "POST /chatbot HTTP/1.1" 200 -
+2025-04-06 21:48:43,934 - INFO - 127.0.0.1 - - [06/Apr/2025 21:48:43] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:48:44,176 - INFO - Returning 1 parsed resumes
+2025-04-06 21:48:44,178 - INFO - 127.0.0.1 - - [06/Apr/2025 21:48:44] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:48:48,139 - INFO - 127.0.0.1 - - [06/Apr/2025 21:48:48] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-06 21:49:21,487 - ERROR - Error saving resume: ac-14ewp39-shard-00-01.bpkwtpe.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: connectTimeoutMS: 20000.0ms)
+2025-04-06 21:49:21,492 - INFO - 127.0.0.1 - - [06/Apr/2025 21:49:21] "[35m[1mPOST /api/save-resume HTTP/1.1[0m" 500 -
+2025-04-06 21:49:29,696 - ERROR - Error saving resume: ac-14ewp39-shard-00-01.bpkwtpe.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: connectTimeoutMS: 20000.0ms)
+2025-04-06 21:49:29,698 - INFO - 127.0.0.1 - - [06/Apr/2025 21:49:29] "[35m[1mPOST /api/save-resume HTTP/1.1[0m" 500 -
+2025-04-06 21:54:18,947 - INFO - 127.0.0.1 - - [06/Apr/2025 21:54:18] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:54:19,212 - INFO - Returning 1 parsed resumes
+2025-04-06 21:54:19,214 - INFO - 127.0.0.1 - - [06/Apr/2025 21:54:19] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:54:20,555 - INFO - 127.0.0.1 - - [06/Apr/2025 21:54:20] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-06 21:54:21,714 - INFO - 127.0.0.1 - - [06/Apr/2025 21:54:21] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-06 21:56:32,458 - INFO - 127.0.0.1 - - [06/Apr/2025 21:56:32] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:56:32,536 - INFO - Saved parsed data to processed_data\prabakaran_20250406_215632.json
+2025-04-06 21:56:32,537 - INFO - Successfully processed prabakaran.pdf
+2025-04-06 21:56:32,561 - INFO - 127.0.0.1 - - [06/Apr/2025 21:56:32] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-06 21:56:32,790 - INFO - Returning 2 parsed resumes
+2025-04-06 21:56:32,793 - INFO - 127.0.0.1 - - [06/Apr/2025 21:56:32] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:56:39,467 - INFO - 127.0.0.1 - - [06/Apr/2025 21:56:39] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-06 21:56:40,078 - INFO - 127.0.0.1 - - [06/Apr/2025 21:56:40] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-06 21:59:53,485 - INFO - 127.0.0.1 - - [06/Apr/2025 21:59:53] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:59:53,814 - INFO - Returning 2 parsed resumes
+2025-04-06 21:59:53,816 - INFO - 127.0.0.1 - - [06/Apr/2025 21:59:53] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 21:59:54,421 - INFO - Saved parsed data to processed_data\JAYASURYA_Resume_20250406_215954.json
+2025-04-06 21:59:54,422 - INFO - Successfully processed JAYASURYA_Resume.pdf
+2025-04-06 21:59:54,423 - INFO - 127.0.0.1 - - [06/Apr/2025 21:59:54] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-06 21:59:56,374 - INFO - Returning 3 parsed resumes
+2025-04-06 21:59:56,376 - INFO - 127.0.0.1 - - [06/Apr/2025 21:59:56] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:00:50,694 - INFO - 127.0.0.1 - - [06/Apr/2025 22:00:50] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-06 22:00:51,616 - INFO - 127.0.0.1 - - [06/Apr/2025 22:00:51] "POST /api/verify-token HTTP/1.1" 200 -
+2025-04-06 22:00:51,936 - INFO - 127.0.0.1 - - [06/Apr/2025 22:00:51] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:00:52,204 - INFO - Returning 3 parsed resumes
+2025-04-06 22:00:52,205 - INFO - 127.0.0.1 - - [06/Apr/2025 22:00:52] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:01:21,179 - INFO - 127.0.0.1 - - [06/Apr/2025 22:01:21] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:01:21,443 - INFO - Returning 3 parsed resumes
+2025-04-06 22:01:21,445 - INFO - 127.0.0.1 - - [06/Apr/2025 22:01:21] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:01:22,708 - INFO - 127.0.0.1 - - [06/Apr/2025 22:01:22] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-06 22:01:23,208 - INFO - 127.0.0.1 - - [06/Apr/2025 22:01:23] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-06 22:06:00,945 - INFO - 127.0.0.1 - - [06/Apr/2025 22:06:00] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:06:01,212 - INFO - Returning 3 parsed resumes
+2025-04-06 22:06:01,213 - INFO - 127.0.0.1 - - [06/Apr/2025 22:06:01] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:06:12,630 - INFO - 127.0.0.1 - - [06/Apr/2025 22:06:12] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:06:12,945 - INFO - Returning 3 parsed resumes
+2025-04-06 22:06:12,951 - INFO - 127.0.0.1 - - [06/Apr/2025 22:06:12] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:07:47,022 - INFO - 127.0.0.1 - - [06/Apr/2025 22:07:47] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 22:07:47,288 - INFO - Returning 3 parsed resumes
+2025-04-06 22:07:47,290 - INFO - 127.0.0.1 - - [06/Apr/2025 22:07:47] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:06:48,212 - INFO - Saved parsed data to processed_data\jegan_20250406_230648.json
+2025-04-06 23:06:48,215 - INFO - Successfully processed jegan.pdf
+2025-04-06 23:06:48,227 - INFO - 127.0.0.1 - - [06/Apr/2025 23:06:48] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-06 23:06:49,250 - INFO - 127.0.0.1 - - [06/Apr/2025 23:06:49] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:06:49,583 - INFO - Returning 4 parsed resumes
+2025-04-06 23:06:49,587 - INFO - 127.0.0.1 - - [06/Apr/2025 23:06:49] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:07:06,592 - INFO - 127.0.0.1 - - [06/Apr/2025 23:07:06] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:07:06,901 - INFO - Returning 4 parsed resumes
+2025-04-06 23:07:06,902 - INFO - 127.0.0.1 - - [06/Apr/2025 23:07:06] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:07:08,748 - INFO - 127.0.0.1 - - [06/Apr/2025 23:07:08] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-06 23:07:09,326 - INFO - 127.0.0.1 - - [06/Apr/2025 23:07:09] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-06 23:08:14,302 - INFO - 127.0.0.1 - - [06/Apr/2025 23:08:14] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:08:14,567 - INFO - Returning 4 parsed resumes
+2025-04-06 23:08:14,568 - INFO - 127.0.0.1 - - [06/Apr/2025 23:08:14] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:09:50,286 - INFO - 127.0.0.1 - - [06/Apr/2025 23:09:50] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:09:50,552 - INFO - Returning 4 parsed resumes
+2025-04-06 23:09:50,554 - INFO - 127.0.0.1 - - [06/Apr/2025 23:09:50] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:14:53,091 - INFO - 127.0.0.1 - - [06/Apr/2025 23:14:53] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:14:53,415 - INFO - Returning 4 parsed resumes
+2025-04-06 23:14:53,417 - INFO - 127.0.0.1 - - [06/Apr/2025 23:14:53] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:16:42,195 - INFO - 127.0.0.1 - - [06/Apr/2025 23:16:42] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-06 23:16:42,443 - INFO - Returning 4 parsed resumes
+2025-04-06 23:16:42,445 - INFO - 127.0.0.1 - - [06/Apr/2025 23:16:42] "GET /get-parsed-resume HTTP/1.1" 200 -

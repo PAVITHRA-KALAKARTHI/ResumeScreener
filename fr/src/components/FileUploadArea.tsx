@@ -113,10 +113,10 @@ const FileUploadArea: React.FC<FileUploadAreaProps> = ({ onFilesSelected, onPars
   };
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in ">
       <div 
-        className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center transition-colors ${
-          isDragging ? 'bg-blue-50 border-blue-300' : 'bg-gray-50 dark:bg-gray-800/30 border-gray-300 dark:border-gray-700'
+        className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center transition-colors bg-blue-200/50 dark:bg-blue-800/40${
+          isDragging ? 'bg-blue-50 border-blue-300' : 'bg-gray-50 dark:bg-gray-800/30 border-blue-300 dark:border-gray-700'
         }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}

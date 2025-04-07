@@ -21,7 +21,7 @@ const ParticleBackground: React.FC = () => {
     
     const particlesContainer = particlesRef.current;
     const particles: HTMLDivElement[] = [];
-    const particleCount = 50; // Increased particle count
+    const particleCount = 10; // Increased particle count
     
     // Create particles
     const createParticles = () => {
@@ -42,7 +42,7 @@ const ParticleBackground: React.FC = () => {
           const delay = Math.random() * 10;
           
           // Randomly select particle type and color scheme
-          const types = ['circle', 'star', 'square', 'circle', 'circle']; // More circles than other shapes
+          const types = [ 'star']; // More circles than other shapes
           const type = types[Math.floor(Math.random() * types.length)];
           
           let hue = 0;

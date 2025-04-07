@@ -169,8 +169,9 @@ const Index: React.FC = () => {
     setParsedResume(null);
   };
   
+  
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-blue-50 dark:from-background dark:to-gray-900 relative overflow-x-hidden">
+    <div className="min-h-screen">
       
       <div className="absolute top-4 right-4">
         {!isAuthenticated ? (
@@ -195,8 +196,8 @@ const Index: React.FC = () => {
           left: `${cursorPosition.x}px`, 
           top: `${cursorPosition.y}px`,
           background: `radial-gradient(circle, rgba(59, 130, 246, 0.7) 0%, rgba(147, 51, 234, 0.3) 40%, transparent 70%)`,
-          width: '300px',
-          height: '300px',
+          width: '30px',
+          height: '30px',
           borderRadius: '50%',
           position: 'fixed',
           transform: 'translate(-50%, -50%)',
