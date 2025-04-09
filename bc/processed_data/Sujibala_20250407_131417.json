@@ -12,9 +12,12 @@
         "PowerBI",
         "Team Work",
         "Time Management",
-        "Machine Learning",
-        "Web Development",
-        "JAVA PROGRAMMING"
+        "MACHINE LEARNING",
+        "WEB DEVELOPMENT",
+        "JAVA PROGRAMMING",
+        "Random Forest",
+        "Support Vector Machine",
+        "Decision Tree"
     ],
     "experience": [],
     "education": [
@@ -36,7 +39,7 @@
             "name": "Android Malware Detection using Machine Leaning",
             "description": "Random Forest\nSupport Vector Machine\nDecision Tree",
             "technologies": [
-                "Machine Learning",
+                "Machine Leaning",
                 "Random Forest",
                 "Support Vector Machine",
                 "Decision Tree"

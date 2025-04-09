@@ -38,19 +38,13 @@ logger = logging.getLogger(__name__)
 API_KEY = "AIzaSyAoDBhQ2NzB-KCu95Ur984zpGgFi_g1L9Q"
 genai.configure(api_key=API_KEY)
 
-# MongoDB connection with error handling
-try:
-    client = MongoClient('your_mongodb_connection_string', serverSelectionTimeoutMS=5000)
-    db = client.resume_screener
-    users_collection = db.users
-    parsed_resumes_collection = db.parsed_resumes
-    
-    # Test the connection
-    client.admin.command('ping')
-    logger.info("Successfully connected to MongoDB")
-except ConnectionFailure as e:
-    logger.error(f"Could not connect to MongoDB: {e}")
-    raise
+
+# MongoDB connection
+MONGO_URI = "mongodb+srv://Deepan:Interstellar143@resumedata.bpkwtpe.mongodb.net/?retryWrites=true&w=majority&appName=Resumedata"
+client = MongoClient(MONGO_URI)
+db = client["resume_screener"]
+users_collection = db["users"]
+parsed_resumes_collection = db["parsed_resumes"]
 
 # JWT Secret Key
 JWT_SECRET = "your_jwt_secret_key"

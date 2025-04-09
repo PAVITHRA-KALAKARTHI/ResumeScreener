@@ -34,7 +34,7 @@
             "description": "Engineered AWS Infrastructure as Code using Terraform, integrated with CircleCI, optimizing resource deployment and reducing time-to-market. Created and deployed GCP Kubernetes (Autopilot) clusters via Terraform, ensuring efficient and scalable application deployments."
         },
         {
-            "title": "PRODUCT Devel OPER Intern",
+            "title": "Product Developer Intern",
             "company": "ARISTOTLE INTELLIGENCE",
             "date": "Jan2024\u2013Mar2024",
             "description": "Developed and deployed an AI application, leveraging AWS for scalable and efficient cloud hosting. Enhanced application functionality by integrating APIs and optimizing system performance."
@@ -46,7 +46,7 @@
             "description": "Developed and deployed a technical documentation site using Docusaurus, improving user guidance and resources. Managed deployment of ACTUS Hackathon Challenge infrastructure to enhance platform scalability."
         },
         {
-            "title": "PRODUCT Devel OPER Intern",
+            "title": "Product Developer Intern",
             "company": "SYSTIMANX",
             "date": "Mar2024\u2013Dec2024",
             "description": "Developed a chatbot to identify former employees who joined as freshers. Integrated the chatbot within internal company databases, ensuring seamless and efficient data retrieval for user queries."
@@ -77,20 +77,20 @@
             "name": "KUBERNETES DEPLOYMENT",
             "description": "Deployed a MERN stack application on a Minikube cluster, managing both backend and frontend services. Integrated MongoDB for efficient data storage and retrieval, ensuring scalability and secure configuration management.",
             "technologies": [
-                "Minikube",
+                "MINIKUBE",
                 "K8s",
-                "Docker",
-                "Github",
-                "MongoDB",
-                "MERN"
+                "DOCKER",
+                "GITHUB",
+                "MERN stack",
+                "MongoDB"
             ]
         },
         {
             "name": "CROP RECOMMENDATION SYSTEM",
-            "description": "Developed a crop recommendation system using machine learning and real-time APIs to provide farmers with data-driven crop suggestions. Implemented algorithms for real-time processing, enhancing agricultural decision -making.",
+            "description": "Developed a crop recommendation system using machine learning and real-time APIs to provide farmers with data-driven crop suggestions. Implemented algorithms for real-time processing, enhancing agricultural decision-making.",
             "technologies": [
-                "Machine Learning",
-                "API"
+                "MACHINE LEARNING",
+                "LIVE"
             ]
         },
         {
@@ -98,9 +98,9 @@
             "description": "Developed an AI-powered personalized product system for the Farm2Bag platform. Utilized machine learning algorithms to analyze user behavior and preferences, delivering tailored product suggestions to boost sales and enhance user engagement.",
             "technologies": [
                 "MERN",
-                "Docker",
-                "Github",
-                "Machine Learning"
+                "DOCKER",
+                "GITHUB",
+                "AI"
             ]
         },
         {
@@ -108,9 +108,9 @@
             "description": "Developed a MERN stack-based application for URL shortening, featuring custom naming options and QR code generation. Enhanced usability with a sleek interface and deployed the application on a Minikube cluster for scalability.",
             "technologies": [
                 "MERN",
-                "Docker",
-                "Kubernetes",
-                "Minikube"
+                "DOCKER",
+                "KUBERNETES",
+                "LIVE"
             ]
         }
     ],
@@ -121,11 +121,11 @@
     ],
     "languages": [],
     "social": {
-        "linkedin": "https://www.linkedin.com/in/jayasurya5454",
+        "linkedin": "https://www.linkedin.com/in/jayasurya5454/",
         "github": "https://github.com/jayasurya5454",
         "twitter": null,
-        "leetcode": "https://leetcode.com/jayasuryaM",
-        "more_info": "https://jayasuryam.netlify.app"
+        "leetcode": "https://leetcode.com/jayasuryaM/",
+        "more_info": "https://jayasuryam.netlify.app/"
     },
     "achievements": [
         "2025, 1st, AI Conclave Hackathon, IEF",
@@ -137,13 +137,13 @@
     "leadership": [
         {
             "role": "Joint Secretary",
-            "organization": "AICoding Club",
+            "organization": "AI Coding Club",
             "date": "2025",
             "achievements": []
         },
         {
             "role": "Treasurer",
-            "organization": "AICoding Club",
+            "organization": "AI Coding Club",
             "date": "2023\u20132024",
             "achievements": []
         }

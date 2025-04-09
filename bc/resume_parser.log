@@ -1540,3 +1540,169 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\20250326_23484
 2025-04-06 23:16:42,195 - INFO - 127.0.0.1 - - [06/Apr/2025 23:16:42] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
 2025-04-06 23:16:42,443 - INFO - Returning 4 parsed resumes
 2025-04-06 23:16:42,445 - INFO - 127.0.0.1 - - [06/Apr/2025 23:16:42] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 12:24:20,418 - ERROR - Could not connect to MongoDB: your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f376976b76cf0044dba5c5, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-04-07 12:25:24,934 - ERROR - Could not connect to MongoDB: your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f376d7902ca3e1abc03fed, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-04-07 12:30:36,487 - INFO - Starting Flask application
+2025-04-07 12:30:36,517 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.84.231:5000
+2025-04-07 12:30:36,517 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 12:31:09,083 - INFO - Saved parsed data to processed_data\deepan__20250407_123109.json
+2025-04-07 12:31:09,084 - INFO - Successfully processed deepan_.pdf
+2025-04-07 12:31:09,092 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:09] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-07 12:31:09,727 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:09] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 12:31:09,993 - INFO - Returning 1 parsed resumes
+2025-04-07 12:31:09,995 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:09] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 12:31:18,155 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:18] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 12:31:19,176 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:19] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 12:31:34,577 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:34] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 12:31:36,008 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:36] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 12:31:59,184 - INFO - Successfully generated 5 job recommendations
+2025-04-07 12:31:59,186 - INFO - 127.0.0.1 - - [07/Apr/2025 12:31:59] "GET /job-matches HTTP/1.1" 200 -
+2025-04-07 12:32:06,756 - INFO - 127.0.0.1 - - [07/Apr/2025 12:32:06] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 12:32:07,022 - INFO - Returning 1 parsed resumes
+2025-04-07 12:32:07,024 - INFO - 127.0.0.1 - - [07/Apr/2025 12:32:07] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 12:32:23,780 - INFO - 127.0.0.1 - - [07/Apr/2025 12:32:23] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 12:32:24,566 - ERROR - Error in verify_token: name 'users_collection' is not defined
+2025-04-07 12:32:24,569 - INFO - 127.0.0.1 - - [07/Apr/2025 12:32:24] "[31m[1mPOST /api/verify-token HTTP/1.1[0m" 400 -
+2025-04-07 12:38:00,817 - INFO - 127.0.0.1 - - [07/Apr/2025 12:38:00] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 12:38:01,558 - ERROR - Error in verify_token: name 'users_collection' is not defined
+2025-04-07 12:38:01,560 - INFO - 127.0.0.1 - - [07/Apr/2025 12:38:01] "[31m[1mPOST /api/verify-token HTTP/1.1[0m" 400 -
+2025-04-07 12:41:50,917 - INFO - 127.0.0.1 - - [07/Apr/2025 12:41:50] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 12:41:51,672 - ERROR - Error in verify_token: name 'users_collection' is not defined
+2025-04-07 12:41:51,674 - INFO - 127.0.0.1 - - [07/Apr/2025 12:41:51] "[31m[1mPOST /api/verify-token HTTP/1.1[0m" 400 -
+2025-04-07 12:44:24,085 - INFO - Successfully connected to MongoDB
+2025-04-07 12:44:24,096 - INFO - Starting Flask application
+2025-04-07 12:44:24,129 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.84.231:5000
+2025-04-07 12:44:24,131 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 12:45:19,032 - INFO - 127.0.0.1 - - [07/Apr/2025 12:45:19] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 12:45:19,294 - ERROR - Exception on /api/verify-token [POST]
+Traceback (most recent call last):
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Deepan B\Re1\git\ResumeScreener-1\bc\app.py", line 109, in verify_token
+    if not users_collection:
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 311, in __bool__
+    raise NotImplementedError(
+NotImplementedError: Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
+2025-04-07 12:45:19,307 - INFO - 127.0.0.1 - - [07/Apr/2025 12:45:19] "[35m[1mPOST /api/verify-token HTTP/1.1[0m" 500 -
+2025-04-07 12:46:02,747 - INFO - 127.0.0.1 - - [07/Apr/2025 12:46:02] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 12:46:03,010 - ERROR - Exception on /api/verify-token [POST]
+Traceback (most recent call last):
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Deepan B\Re1\git\ResumeScreener-1\bc\app.py", line 109, in verify_token
+    if not users_collection:
+  File "C:\Users\Deepa\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymongo\synchronous\collection.py", line 311, in __bool__
+    raise NotImplementedError(
+NotImplementedError: Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
+2025-04-07 12:46:03,016 - INFO - 127.0.0.1 - - [07/Apr/2025 12:46:03] "[35m[1mPOST /api/verify-token HTTP/1.1[0m" 500 -
+2025-04-07 12:49:45,278 - ERROR - Could not connect to MongoDB: your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f37c8c0918aedde9eafde7, topology_type: Unknown, servers: [<ServerDescription ('your_mongodb_connection_string', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('your_mongodb_connection_string:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-04-07 12:51:28,766 - ERROR - Could not connect to MongoDB: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 67f37cf3df602258c624cc81, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-14ewp39-shard-00-00.bpkwtpe.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-14ewp39-shard-00-01.bpkwtpe.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-14ewp39-shard-00-02.bpkwtpe.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-04-07 13:04:26,750 - INFO - Starting Flask application
+2025-04-07 13:04:26,779 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.84.231:5000
+2025-04-07 13:04:26,780 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 13:04:47,510 - INFO - 127.0.0.1 - - [07/Apr/2025 13:04:47] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:04:48,830 - INFO - 127.0.0.1 - - [07/Apr/2025 13:04:48] "POST /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:04:48,878 - INFO - 127.0.0.1 - - [07/Apr/2025 13:04:48] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:04:49,195 - INFO - Returning 1 parsed resumes
+2025-04-07 13:04:49,197 - INFO - 127.0.0.1 - - [07/Apr/2025 13:04:49] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:05:55,517 - INFO - 127.0.0.1 - - [07/Apr/2025 13:05:55] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:05:55,771 - INFO - Returning 1 parsed resumes
+2025-04-07 13:05:55,774 - INFO - 127.0.0.1 - - [07/Apr/2025 13:05:55] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:05:56,964 - INFO - 127.0.0.1 - - [07/Apr/2025 13:05:56] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-07 13:05:57,511 - INFO - 127.0.0.1 - - [07/Apr/2025 13:05:57] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-07 13:06:40,490 - INFO - 127.0.0.1 - - [07/Apr/2025 13:06:40] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 13:06:42,416 - INFO - 127.0.0.1 - - [07/Apr/2025 13:06:42] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 13:07:45,098 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:45] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:07:45,863 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:45] "POST /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:07:45,877 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:45] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:07:46,199 - INFO - Returning 1 parsed resumes
+2025-04-07 13:07:46,201 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:46] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:07:53,201 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:53] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:07:53,466 - INFO - Returning 1 parsed resumes
+2025-04-07 13:07:53,468 - INFO - 127.0.0.1 - - [07/Apr/2025 13:07:53] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:14:17,476 - INFO - Saved parsed data to processed_data\Sujibala_20250407_131417.json
+2025-04-07 13:14:17,477 - INFO - Successfully processed Sujibala.pdf
+2025-04-07 13:14:17,480 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:17] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-07 13:14:18,827 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:18] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:14:19,084 - INFO - Returning 2 parsed resumes
+2025-04-07 13:14:19,087 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:19] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:14:26,720 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:26] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 13:14:27,743 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:27] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 13:14:40,087 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:40] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 13:14:41,492 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:41] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 13:14:50,201 - INFO - Successfully generated 5 job recommendations
+2025-04-07 13:14:50,205 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:50] "GET /job-matches HTTP/1.1" 200 -
+2025-04-07 13:14:55,038 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:55] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:14:55,304 - INFO - Returning 2 parsed resumes
+2025-04-07 13:14:55,306 - INFO - 127.0.0.1 - - [07/Apr/2025 13:14:55] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:15:23,807 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:23] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:15:24,843 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:24] "POST /api/verify-token HTTP/1.1" 200 -
+2025-04-07 13:15:24,857 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:24] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:15:25,180 - INFO - Returning 2 parsed resumes
+2025-04-07 13:15:25,182 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:25] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:15:30,470 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:30] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:15:30,719 - INFO - Returning 2 parsed resumes
+2025-04-07 13:15:30,721 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:30] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:15:32,934 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:32] "OPTIONS /api/save-resume HTTP/1.1" 200 -
+2025-04-07 13:15:33,567 - INFO - 127.0.0.1 - - [07/Apr/2025 13:15:33] "POST /api/save-resume HTTP/1.1" 200 -
+2025-04-07 13:24:41,913 - INFO - 127.0.0.1 - - [07/Apr/2025 13:24:41] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-07 13:24:43,404 - INFO - 127.0.0.1 - - [07/Apr/2025 13:24:43] "POST /chatbot HTTP/1.1" 200 -
+2025-04-07 13:26:57,174 - INFO - 127.0.0.1 - - [07/Apr/2025 13:26:57] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-07 13:26:57,437 - INFO - Returning 2 parsed resumes
+2025-04-07 13:26:57,440 - INFO - 127.0.0.1 - - [07/Apr/2025 13:26:57] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-09 14:09:54,060 - INFO - Starting Flask application
+2025-04-09 14:09:54,079 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.137.175:5000
+2025-04-09 14:09:54,080 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-09 14:10:38,808 - INFO - 127.0.0.1 - - [09/Apr/2025 14:10:38] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-09 14:10:39,127 - INFO - Returning 2 parsed resumes
+2025-04-09 14:10:39,129 - INFO - 127.0.0.1 - - [09/Apr/2025 14:10:39] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-09 14:10:42,761 - INFO - Saved parsed data to processed_data\JAYASURYA_Resume_20250409_141042.json
+2025-04-09 14:10:42,762 - INFO - Successfully processed JAYASURYA_Resume.pdf
+2025-04-09 14:10:42,764 - INFO - 127.0.0.1 - - [09/Apr/2025 14:10:42] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-09 14:10:42,889 - INFO - Returning 3 parsed resumes
+2025-04-09 14:10:42,890 - INFO - 127.0.0.1 - - [09/Apr/2025 14:10:42] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-09 14:11:14,540 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:14] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-09 14:11:15,733 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:15] "POST /chatbot HTTP/1.1" 200 -
+2025-04-09 14:11:49,910 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:49] "OPTIONS /api/verify-token HTTP/1.1" 200 -
+2025-04-09 14:11:52,069 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:52] "POST /api/verify-token HTTP/1.1" 200 -
+2025-04-09 14:11:52,385 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:52] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-09 14:11:52,649 - INFO - Returning 3 parsed resumes
+2025-04-09 14:11:52,650 - INFO - 127.0.0.1 - - [09/Apr/2025 14:11:52] "GET /get-parsed-resume HTTP/1.1" 200 -

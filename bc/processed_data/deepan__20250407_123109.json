@@ -1,0 +1,85 @@
+{
+    "name": "DEEPAN B",
+    "email": "deepanb2005@gmail.com",
+    "phone": "9345844494",
+    "location": "Erode, Tamil Nadu",
+    "summary": "I'ma motivated fresher with a strong background in Machine Learning and Programming. Eager to apply my skills to develop cutting-edge solutions. Committed to learning and making a meaningful impact with integrity.",
+    "skills": [
+        "Machine Learning",
+        "Programming",
+        "Java",
+        "Python",
+        "C and C++(Basics)",
+        "HTML/CSS",
+        "OOPS",
+        "Git"
+    ],
+    "experience": [
+        {
+            "title": "Inplant Training on Robotics",
+            "company": "Odugaatech Pvt.Ltd.",
+            "date": "Jul 2024",
+            "description": ""
+        }
+    ],
+    "education": [
+        {
+            "degree": "B-Tech Artificial Intelligence and Data Science",
+            "institution": "Kongu Engineering College, Perundurai, Erode, Tamil Nadu",
+            "date": "2023-2027",
+            "gpa": "7.77"
+        },
+        {
+            "degree": "HSC",
+            "institution": "Kongu Vellalar matriculation",
+            "date": "2023",
+            "gpa": null
+        },
+        {
+            "degree": "SSLC",
+            "institution": null,
+            "date": "2021",
+            "gpa": "89%"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Earth Quake Prediction Using Machine Learning",
+            "description": "ML models like Random Forest Classifier, Decision Tree Classifier, Linear and Logistic Regression is trained and with the help of Hyper parameter tuning its accuracy is increased.",
+            "technologies": [
+                "Machine Learning",
+                "Random Forest",
+                "Decision Tree",
+                "Linear Regression",
+                "Logistic Regression"
+            ]
+        },
+        {
+            "name": "Java Project - \u2018Pharmacy Management System\u2019",
+            "description": "The goal of this project is to create a pharmacy management system that allows for efficient handling of customer records, inventory, and orders. Users can manage information such as customer details, product information (including price and stock), and order details, which includes product quantities and total pricing.",
+            "technologies": [
+                "Java"
+            ]
+        }
+    ],
+    "certifications": [
+        "Type Writting Junior(with Distinction)"
+    ],
+    "languages": [
+        "English",
+        "Tamil"
+    ],
+    "social": {
+        "linkedin": "www.linkedin.com/in/ deepan -632950324",
+        "github": null,
+        "twitter": null,
+        "leetcode": "https://leetcode.com/u/ deepan /",
+        "more_info": null
+    },
+    "achievements": [
+        "Winner, 3rd Place in Coding Contest conducted by AI Association in Newell\u2019s Competition, Kongu Engineering College",
+        "Finalist, Ideathon 2024, IEF, Kongu Engineering college, Oct 2024"
+    ],
+    "leadership": [],
+    "source_file": "deepan_.pdf"
+}
