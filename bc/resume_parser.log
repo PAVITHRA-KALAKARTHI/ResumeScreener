@@ -1872,3 +1872,22 @@ NotImplementedError: Collection objects do not implement truth value testing or 
 2025-04-11 14:39:51,168 - INFO - 127.0.0.1 - - [11/Apr/2025 14:39:51] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
 2025-04-11 14:39:51,180 - INFO - Returning 7 parsed resumes
 2025-04-11 14:39:51,180 - INFO - 127.0.0.1 - - [11/Apr/2025 14:39:51] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-11 14:45:52,606 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-11 14:45:52,608 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-11 14:46:39,883 - INFO - Starting Flask application
+2025-04-11 14:46:39,904 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.1.84.68:5000
+2025-04-11 14:46:39,904 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-11 14:47:16,167 - INFO - 127.0.0.1 - - [11/Apr/2025 14:47:16] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-11 14:47:18,909 - INFO - 127.0.0.1 - - [11/Apr/2025 14:47:18] "POST /chatbot HTTP/1.1" 200 -
+2025-04-11 15:59:58,145 - INFO - Saved parsed data to processed_data\Resume_20250411_155958.json
+2025-04-11 15:59:58,145 - INFO - Successfully processed Resume.pdf
+2025-04-11 15:59:58,147 - INFO - 127.0.0.1 - - [11/Apr/2025 15:59:58] "POST /parse-resumes HTTP/1.1" 200 -
+2025-04-11 15:59:59,157 - INFO - 127.0.0.1 - - [11/Apr/2025 15:59:59] "OPTIONS /get-parsed-resume HTTP/1.1" 200 -
+2025-04-11 15:59:59,186 - INFO - Returning 8 parsed resumes
+2025-04-11 15:59:59,186 - INFO - 127.0.0.1 - - [11/Apr/2025 15:59:59] "GET /get-parsed-resume HTTP/1.1" 200 -
+2025-04-11 16:00:43,390 - INFO - 127.0.0.1 - - [11/Apr/2025 16:00:43] "OPTIONS /chatbot HTTP/1.1" 200 -
+2025-04-11 16:00:44,263 - INFO - 127.0.0.1 - - [11/Apr/2025 16:00:44] "POST /chatbot HTTP/1.1" 200 -

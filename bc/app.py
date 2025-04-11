@@ -19,13 +19,10 @@ import datetime as dt
 import requests
 from bson import ObjectId
 from pymongo.errors import ConnectionFailure
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
 
 # Get MongoDB URI from environment variables
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = "mongodb+srv://Deepan:Interstellar143@resumedata.bpkwtpe.mongodb.net/?retryWrites=true&w=majority&appName=Resumedata"
 
 if not MONGO_URI:
     raise ValueError("MONGO_URI is not set in the environment variables")
@@ -737,5 +734,5 @@ def home():
     return "Hello, Flask is working!"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
 
