@@ -19,6 +19,27 @@ import datetime as dt
 import requests
 from bson import ObjectId
 from pymongo.errors import ConnectionFailure
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Get MongoDB URI from environment variables
+MONGO_URI = os.getenv("MONGO_URI")
+
+if not MONGO_URI:
+    raise ValueError("MONGO_URI is not set in the environment variables")
+
+# Connect to MongoDB
+try:
+    client = MongoClient(MONGO_URI)
+    db = client["resume_screener"]
+    users_collection = db["users"]
+    parsed_resumes_collection = db["parsed_resumes"]
+    print("Connected to MongoDB successfully")
+except ConnectionFailure as e:
+    print(f"MongoDB connection failed: {e}")
+    raise
 
 # Set Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -37,14 +58,6 @@ logger = logging.getLogger(__name__)
 # Configure Gemini API key
 API_KEY = "AIzaSyAoDBhQ2NzB-KCu95Ur984zpGgFi_g1L9Q"
 genai.configure(api_key=API_KEY)
-
-
-# MongoDB connection
-MONGO_URI = "mongodb+srv://Deepan:Interstellar143@resumedata.bpkwtpe.mongodb.net/?retryWrites=true&w=majority&appName=Resumedata"
-client = MongoClient(MONGO_URI)
-db = client["resume_screener"]
-users_collection = db["users"]
-parsed_resumes_collection = db["parsed_resumes"]
 
 # JWT Secret Key
 JWT_SECRET = "your_jwt_secret_key"
@@ -713,17 +726,9 @@ if __name__ == "__main__":
     logger.info("Starting Flask application")
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
 
-from pymongo import MongoClient
-client = MongoClient('your_mongodb_connection_string')
-try:
-    client.admin.command('ping')
-    print("MongoDB connection successful")
-except Exception as e:
-    print(f"MongoDB connection failed: {e}")
 
 
-
-    from flask import Flask
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -732,5 +737,5 @@ def home():
     return "Hello, Flask is working!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
 
