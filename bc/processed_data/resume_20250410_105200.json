@@ -1,0 +1,68 @@
+{
+    "name": "Pavithra K",
+    "email": "pavithra6420@gmail.com",
+    "phone": "9043304403",
+    "location": "Salem-636502",
+    "summary": "Ethusiastic and result-driven recent graduate.Aiming to apply strong organizational skills and passion for technology to contribute to innovative projects and support team success.",
+    "skills": [
+        "AI",
+        "Machine learning",
+        "organizational skills",
+        "communication skills",
+        "teamwork",
+        "Java",
+        "Python",
+        "C",
+        "HTML",
+        "CSS",
+        "Bootstrap"
+    ],
+    "experience": [],
+    "education": [
+        {
+            "degree": "B.tech Artificial Intelligence and Data Science",
+            "institution": "Kongu Engineering College,Perundurai",
+            "date": "Pursuing",
+            "gpa": null
+        },
+        {
+            "degree": "HSC",
+            "institution": "Srii Jothi Higher secondary School ,Tharamangalam",
+            "date": "2023",
+            "gpa": "90.5%"
+        },
+        {
+            "degree": "SSLC",
+            "institution": "Srii Jothi Higher Secondary School,Tharamangalam",
+            "date": "2021",
+            "gpa": null
+        }
+    ],
+    "projects": [
+        {
+            "name": "Conversational Image Recognition chatbot",
+            "description": "development at Open House Exhibition KEC,August 2024",
+            "technologies": []
+        }
+    ],
+    "certifications": [
+        "IEEE"
+    ],
+    "languages": [
+        "Tamil",
+        "English"
+    ],
+    "social": {
+        "linkedin": null,
+        "github": null,
+        "twitter": null,
+        "leetcode": null,
+        "more_info": null
+    },
+    "achievements": [
+        "Participated in Scientium Event in 2024 at Kongu Engineering College",
+        "Participated in Ideathon\u201924 at Kongu Engineering College"
+    ],
+    "leadership": [],
+    "source_file": "resume.docx"
+}

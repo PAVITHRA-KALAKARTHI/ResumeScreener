@@ -1,0 +1,82 @@
+{
+    "name": "PAVITHRA K",
+    "email": "pavithra.kalakarthi@gmail.com",
+    "phone": "9043304403",
+    "location": "Salem, Tamil Nadu, India",
+    "summary": "I am looking for a position that allows me to explore my capabilities, utilize my skills effectively, and experience significant career growth.",
+    "skills": [
+        "PYTHON PROGRAMMING",
+        "WEB DEVELOPMENT",
+        "JAVA PROGRAMMING",
+        "JAVA",
+        "HTML",
+        "CSS",
+        "BOOTSTRAP",
+        "PowerBI",
+        "Random Forest",
+        "AdaBoost",
+        "LightGBM",
+        "XGBoost",
+        "MySQL Workbench",
+        "Connector/j",
+        "Java IDE"
+    ],
+    "experience": [],
+    "education": [
+        {
+            "degree": "B.TECH ARTIFICIAL INTELLIGENCE AND DATA SCIENCE",
+            "institution": "KONGU ENGINEERING COLLEGE",
+            "date": "2023-2027",
+            "gpa": "8.225"
+        },
+        {
+            "degree": "HIGHER SECONDARY",
+            "institution": "Srii jothi hr.sec school, Tharamangalam, Salem",
+            "date": null,
+            "gpa": null
+        }
+    ],
+    "projects": [
+        {
+            "name": "MACHINE LEARNING:ENERGY DEMAND FORECASTING",
+            "description": null,
+            "technologies": [
+                "Random Forest",
+                "AdaBoost",
+                "LightGBM",
+                "XGBoost",
+                "JAVA",
+                "MySQL Workbench",
+                "Connector/j",
+                "Java IDE"
+            ]
+        },
+        {
+            "name": "DUTY SCHEDULE ALLOTMENT SYSTEM",
+            "description": null,
+            "technologies": []
+        }
+    ],
+    "certifications": [],
+    "languages": [
+        "Tamil",
+        "English"
+    ],
+    "social": {
+        "linkedin": "https://www.linkedin.com/in/pavithra-kalakarthi-502519335/",
+        "github": null,
+        "twitter": null,
+        "leetcode": null,
+        "more_info": null
+    },
+    "achievements": [],
+    "leadership": [
+        {
+            "role": "Active member",
+            "organization": "IEEE Club, KEC",
+            "date": null,
+            "achievements": []
+        }
+    ],
+    "source_file": "Resume.pdf"
+}
